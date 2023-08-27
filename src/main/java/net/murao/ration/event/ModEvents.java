@@ -3,8 +3,10 @@ package net.murao.ration.event;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraftforge.common.capabilities.RegisterCapabilitiesEvent;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
+import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -14,6 +16,7 @@ import net.murao.ration.diversity.PlayerDiversityProvider;
 
 @Mod.EventBusSubscriber(modid = Ration.MOD_ID)
 public class ModEvents {
+    //Diversity Events
     @SubscribeEvent
     public static void onAttachCapabilitiesPlayer(AttachCapabilitiesEvent<Entity> event) {
         if(event.getObject() instanceof Player) {
@@ -37,5 +40,14 @@ public class ModEvents {
     @SubscribeEvent
     public static void onRegisterCapabilities(RegisterCapabilitiesEvent event) {
         event.register(PlayerDiversity.class);
+    }
+
+    //Food Eaten Event
+    @SubscribeEvent
+    public static void onFoodEaten(LivingEntityUseItemEvent.Finish event) {
+        if (event.getItem().isEdible() && event.getEntity() instanceof Player player) {
+            Item currentFood = event.getItem().getItem();
+        }
+
     }
 }
