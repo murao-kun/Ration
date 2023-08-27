@@ -1,4 +1,4 @@
-package net.murao.ration.event;
+package net.murao.ration.events;
 
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
@@ -11,8 +11,8 @@ import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.murao.ration.Ration;
-import net.murao.ration.diversity.PlayerDiversity;
-import net.murao.ration.diversity.PlayerDiversityProvider;
+import net.murao.ration.capabilities.PlayerDiversity;
+import net.murao.ration.capabilities.PlayerDiversityProvider;
 
 @Mod.EventBusSubscriber(modid = Ration.MOD_ID)
 public class ModEvents {
@@ -48,6 +48,11 @@ public class ModEvents {
         if (event.getItem().isEdible() && event.getEntity() instanceof Player player) {
             Item currentFood = event.getItem().getItem();
         }
-
     }
+
+    //Diet
+    //@SubscribeEvent
+    //public static void disableDietBuffs(DietEvent.ApplyEffect event) {
+    //    event.setCanceled(!MEConfig.COMMON.nativeDietBuffs.get());
+    //}
 }

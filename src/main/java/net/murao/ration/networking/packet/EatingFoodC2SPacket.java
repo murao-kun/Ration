@@ -26,10 +26,6 @@ public class EatingFoodC2SPacket {
         context.enqueueWork(() -> {
             ServerPlayer player = context.getSender();
             ServerLevel level = player.getLevel();
-
-    //        if (FoodEaten(player)) {
-    //
-    //        }
         });
         return true;
     }

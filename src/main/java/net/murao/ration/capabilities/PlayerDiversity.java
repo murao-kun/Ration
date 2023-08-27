@@ -1,4 +1,4 @@
-package net.murao.ration.diversity;
+package net.murao.ration.capabilities;
 
 import net.minecraft.nbt.CompoundTag;
 
